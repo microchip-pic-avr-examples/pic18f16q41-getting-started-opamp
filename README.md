@@ -5,9 +5,9 @@
 On the PIC18-Q41 family of devices, the operational amplifier (OPA) module is a powerful analog peripheral. The OPA module comes with an internal resistor ladder, which can be used to create a non-inverting or inverting amplifier with no external components required. An internal switch can set the OPA module into unity gain without an external jumper wire. The OPA module also has the option for an external configuration, where the user can use externally placed components to build a custom amplifier configuration. This code example is designed to switch between and demonstrate the 4 configurations listed above -  Unity Gain, Non-Inverting Amplifier, Inverting Amplifier, and External.
 
 ## Related Documentation
-[TB3280: Using Operational Amplifiers in PIC16 and PIC18](http://ww1.microchip.com/downloads/en/DeviceDoc/Using-the-Operational-Amplifier-on-PIC16-and-PIC18-90003280A.pdf)
-[TB3279: Optimizing Internal Operational Amplifiers for Analog Signal Conditioning](http://ww1.microchip.com/downloads/en/DeviceDoc/Optimizing-Internal-Operational-Amplifiers-for-Analog-Signal-Conditioning-90003279A.pdf)
-[AN3521: Analog Sensor Measurement and Acquisition](http://www.microchip.com/wwwappnotes/appnotes.aspx?appnote=en1002264)
+[TB3280: Using Operational Amplifiers in PIC16 and PIC18](http://ww1.microchip.com/downloads/en/DeviceDoc/Using-the-Operational-Amplifier-on-PIC16-and-PIC18-90003280A.pdf)  
+[TB3279: Optimizing Internal Operational Amplifiers for Analog Signal Conditioning](http://ww1.microchip.com/downloads/en/DeviceDoc/Optimizing-Internal-Operational-Amplifiers-for-Analog-Signal-Conditioning-90003279A.pdf)  
+[AN3521: Analog Sensor Measurement and Acquisition](http://www.microchip.com/wwwappnotes/appnotes.aspx?appnote=en1002264)  
 
 ## Software Used
 
