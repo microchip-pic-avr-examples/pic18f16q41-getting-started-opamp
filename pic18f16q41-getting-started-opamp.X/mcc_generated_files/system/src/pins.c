@@ -1,26 +1,21 @@
 /**
-  Generated Interrupt Manager Source File
+  Generated Pins File
 
-  @Company:
+  Company:
     Microchip Technology Inc.
 
-  @File Name:
-    interrupt_manager.c
+  File Name:
+    pins.c
 
-  @Summary:
-    This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  Summary:
+    This is generated driver implementation for pins. 
 
-  @Description:
-    This header file provides implementations for global interrupt handling.
-    For individual peripheral handlers please see the peripheral driver for
-    all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.0
-        Device            :  PIC18F16Q41
-        Driver Version    :  2.03
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 2.10 and above or later
-        MPLAB 	          :  MPLAB X 5.35
+  Description:
+    This file provides implementations for pin APIs for all pins selected in the GUI.
+
+  Generation Information:
+    Driver Version:  3.0.0
+
 */
 
 /*
@@ -46,27 +41,82 @@
     SOFTWARE.
 */
 
-#include "interrupt_manager.h"
-#include "mcc.h"
+#include "../pins.h"
 
-void  INTERRUPT_Initialize (void)
+
+void PIN_MANAGER_Initialize(void)
 {
-    // Disable Interrupt Priority Vectors (16CXXX Compatibility Mode)
-    INTCON0bits.IPEN = 0;
+   /**
+    LATx registers
+    */
+    LATA = 0x0;
+    LATB = 0x0;
+    LATC = 0x0;
+
+    /**
+    TRISx registers
+    */
+    TRISA = 0x1D;
+    TRISB = 0xF0;
+    TRISC = 0xDB;
+
+    /**
+    ANSELx registers
+    */
+    ANSELA = 0x4;
+    ANSELB = 0x30;
+    ANSELC = 0x5;
+
+    /**
+    WPUx registers
+    */
+    WPUA = 0x0;
+    WPUB = 0x0;
+    WPUC = 0x0;
+
+    /**
+    ODx registers
+    */
+    ODCONA = 0x0;
+    ODCONB = 0x0;
+    ODCONC = 0x0;
+
+    /**
+    SLRCONx registers
+    */
+    SLRCONA = 0x37;
+    SLRCONB = 0xF0;
+    SLRCONC = 0xFF;
+
+    /**
+    INLVLx registers
+    */
+    INLVLA = 0x3F;
+    INLVLB = 0xF0;
+    INLVLC = 0xFF;
+    /**
+    PPS registers
+    */
+
+   /**
+    IOCx registers 
+    */
+    IOCAP = 0x0;
+    IOCAN = 0x0;
+    IOCAF = 0x0;
+    IOCBP = 0x0;
+    IOCBN = 0x0;
+    IOCBF = 0x0;
+    IOCCP = 0x0;
+    IOCCN = 0x0;
+    IOCCF = 0x0;
+
+}
+  
+void PIN_MANAGER_IOC(void)
+{
 }
 
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
-    // interrupt handler
-    if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-    {
-        PIN_MANAGER_IOC();
-    }
-    else
-    {
-        //Unhandled Interrupt
-    }
-}
 /**
  End of File
 */

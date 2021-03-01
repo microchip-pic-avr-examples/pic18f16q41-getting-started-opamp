@@ -1,10 +1,3 @@
-/* 
- * File:   debounceFSM.h
- * Author: C62081
- *
- * Created on May 11, 2020, 9:33 AM
- */
-
 #ifndef DEBOUNCEFSM_H
 #define	DEBOUNCEFSM_H
 

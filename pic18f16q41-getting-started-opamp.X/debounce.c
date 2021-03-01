@@ -1,4 +1,4 @@
-#include "mcc_generated_files/mcc.h"
+#include "mcc_generated_files/system/system.h"
 
 #include "debounce.h"
 #include "OPAsetup.h"
@@ -17,7 +17,7 @@ union U1
         unsigned char	newk:1;				// new debounced key state
         unsigned char	nuse:1;				// unused
     } flags;
-    unsigned char	whole;					// used to preset all variables at once
+    unsigned char whole;					// used to preset all variables at once
 } keys[1];									// one collection of variables for each key
 
 void initDebounce(void)

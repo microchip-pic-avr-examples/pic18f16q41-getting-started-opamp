@@ -1,3 +1,24 @@
+/**
+  @Generated CLOCK CONTROL Source File
+
+  @Company:
+    Microchip Technology Inc.
+
+  @File Name:
+    clock.c
+
+  @Summary:
+    This is the clock.c file generated using CCL
+
+  @Description:
+    This header file provides implementations for driver APIs for all modules selected in the GUI.
+    Generation Information :
+        Driver Version    :  2.00
+    The generated drivers are tested against the following:
+        Compiler          :  XC8 v2.20
+        MPLAB             :  MPLAB X 5.40
+*/
+
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -7,7 +28,7 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     with Microchip products. See the Microchip license agreement accompanying 
     this software, if any, for additional info regarding your rights and 
     obligations.
-
+    
     MICROCHIP SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT 
     WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT 
     LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT 
@@ -17,11 +38,11 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     THEORY FOR ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES INCLUDING BUT NOT 
     LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES, 
     OR OTHER SIMILAR COSTS. 
-
+    
     To the fullest extend allowed by law, Microchip and its licensors 
     liability will not exceed the amount of fees, if any, that you paid 
     directly to Microchip to use this software. 
-
+    
     THIRD PARTY SOFTWARE:  Notwithstanding anything to the contrary, any 
     third party software accompanying this software is subject to the terms 
     and conditions of the third party's license agreement.  To the extent 
@@ -31,65 +52,29 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include "OPAsetup.h"
-#include "debounce.h"
+#include <xc.h>
+#include "../clock.h"
 
-/*
- * OPA Module I/O
- * OPA1OUT = RC2
- * In+ = RA2 (Non-Inverting, Unity Gain)
- * In- = RA2 (Inverting)
- * 
- * External only:
- * In+ = RB5 (Custom)
- * In- = RB4 (Custom)
- */
-
-//Detect a timer overflow
-#define TMR2_HasOverflowOccured() PIR3bits.TMR2IF
-#define TMR2_ClearOverflowFlag() PIR3bits.TMR2IF = 0b0
-
-int main(void)
+void CLOCK_Initialize(void)
 {
-    // Initialize the device
-    SYSTEM_Initialize();
-    
-    //Setup the OPAMP
-    setupOPA(UNITY_GAIN);
-    
-    // Initialize the Debounce Machine
-    initDebounce();
-    
-    // Start TMR2
-    Timer2_Start();
-        
-    uint8_t count = 0;
-    while (1)
-    {
-        // Occurs every 1ms
-        if (TMR2_HasOverflowOccured())
-        {
-            TMR2_ClearOverflowFlag();
-            // Increment Timer Counter for LEDs
-            count++;
-            
-            // Update the key state (invert to prevent premature switching)
-            updateKeyState(0, !SW_1_GetValue());
-            
-            // Run debouncing
-            debounce();
-        }
-        
-        // Change the LED
-        if (count == 250)
-        {
-            LED_D7_LAT = !LED_D7_LAT;
-            count = 0;
-        }
-    }
-    return 0;
+    // Set the CLOCK CONTROL module to the options selected in the user interface.
+    // NDIV 4; NOSC HFINTOSC; 
+    OSCCON1 = 0x62;
+    // 
+    OSCCON2 = 0x70;
+    // SOSCPWR Low power; CSWHOLD may proceed; 
+    OSCCON3 = 0x0;
+    // EXTOEN disabled; HFOEN disabled; MFOEN disabled; LFOEN disabled; SOSCEN disabled; ADOEN disabled; 
+    OSCEN = 0x0;
+    // HFFRQ 4_MHz; 
+    OSCFRQ = 0x2;
+    // 
+    OSCSTAT = 0x0;
+    // TUN undefined; 
+    OSCTUNE = 0x0;
+    // ACTEN disabled; ACTUD enabled; 
+    ACTCON = 0x0;
 }
 /**
  End of File

@@ -1,3 +1,21 @@
+/** 
+  @Company
+    Microchip Technology Inc.
+ 
+  @File Name
+    TMR_interface.h
+ 
+  @Summary
+    This is the generated header file for Timer module interfaces.
+ 
+  @Description
+    This header file provides interfaces to Timer driver APIs.
+    Generation Information :
+        Driver Version    :  1.0.0
+    The generated drivers are tested against the following:
+        MPLAB             :  MPLAB X v5.45 and above
+*/
+
 /*
 Copyright (c) [2012-2020] Microchip Technology Inc.  
 
@@ -7,7 +25,7 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     with Microchip products. See the Microchip license agreement accompanying 
     this software, if any, for additional info regarding your rights and 
     obligations.
-
+    
     MICROCHIP SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT 
     WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT 
     LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT 
@@ -17,11 +35,11 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     THEORY FOR ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES INCLUDING BUT NOT 
     LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES, 
     OR OTHER SIMILAR COSTS. 
-
+    
     To the fullest extend allowed by law, Microchip and its licensors 
     liability will not exceed the amount of fees, if any, that you paid 
     directly to Microchip to use this software. 
-
+    
     THIRD PARTY SOFTWARE:  Notwithstanding anything to the contrary, any 
     third party software accompanying this software is subject to the terms 
     and conditions of the third party's license agreement.  To the extent 
@@ -31,66 +49,34 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
     third party licenses prohibit any of the restrictions described here, 
     such restrictions will not apply to such third party software.
 */
-#include "mcc_generated_files/system/system.h"
 
-#include "OPAsetup.h"
-#include "debounce.h"
+#ifndef TMR_INTERFACE_H
+#define TMR_INTERFACE_H
 
-/*
- * OPA Module I/O
- * OPA1OUT = RC2
- * In+ = RA2 (Non-Inverting, Unity Gain)
- * In- = RA2 (Inverting)
- * 
- * External only:
- * In+ = RB5 (Custom)
- * In- = RB4 (Custom)
+/**
+ * @brief This file contains API prototypes and other datatypes for Timer-0 module.
+ * @defgroup timer_interface Timer Interface
+ * @{
  */
 
-//Detect a timer overflow
-#define TMR2_HasOverflowOccured() PIR3bits.TMR2IF
-#define TMR2_ClearOverflowFlag() PIR3bits.TMR2IF = 0b0
-
-int main(void)
-{
-    // Initialize the device
-    SYSTEM_Initialize();
-    
-    //Setup the OPAMP
-    setupOPA(UNITY_GAIN);
-    
-    // Initialize the Debounce Machine
-    initDebounce();
-    
-    // Start TMR2
-    Timer2_Start();
+#include<stddef.h>
         
-    uint8_t count = 0;
-    while (1)
-    {
-        // Occurs every 1ms
-        if (TMR2_HasOverflowOccured())
-        {
-            TMR2_ClearOverflowFlag();
-            // Increment Timer Counter for LEDs
-            count++;
-            
-            // Update the key state (invert to prevent premature switching)
-            updateKeyState(0, !SW_1_GetValue());
-            
-            // Run debouncing
-            debounce();
-        }
-        
-        // Change the LED
-        if (count == 250)
-        {
-            LED_D7_LAT = !LED_D7_LAT;
-            count = 0;
-        }
-    }
-    return 0;
-}
 /**
- End of File
-*/
+ @ingroup timer_interface
+ @typedef struct TMR_INTERFACE
+ @brief This structure contains the interfaces to Timer module
+ */
+ 
+struct TMR_INTERFACE
+{
+    void (*Initialize)(void);
+    void (*Start)(void);
+    void (*Stop)(void);
+    void (*PeriodCountSet)(size_t count);
+    void (*TimeoutCallbackRegister)(void (* CallbackHandler)(void));
+    void (*Tasks)(void);
+};
+/**
+ * @}
+ */
+#endif //TMR_INTERFACE_H
