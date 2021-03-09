@@ -9,7 +9,7 @@
         "projectName": "pic18f16q41-getting-started-opamp",
         "shortDescription": "PIC18F16Q41 Introduction to the Operational Amplifier Module",
         "ide": {
-            "name": "MPLABX",
+            "name": "MPLAB X",
             "semverRange": ">=5.45.0"
         },
         "compiler": [
