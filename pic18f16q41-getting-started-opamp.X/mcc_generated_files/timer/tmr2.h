@@ -15,8 +15,8 @@
     Generation Information :
         Driver Version    :  3.0.0
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v2.30 and above
-        MPLAB             :  MPLAB X v5.45 and above
+        Compiler          :  XC8 v2.31
+        MPLAB             :  MPLAB X v5.45
 */
 
 /*
@@ -595,6 +595,14 @@ void Timer2_PeriodCountSet(size_t periodVal);
 
 /**
  * @ingroup TMR2_driver
+ * @brief Interrupt Service Routine for TMR2 overflow interrupt.
+ * @param void
+ * @return void
+ */
+void Timer2_ISR(void);
+
+/**
+ * @ingroup TMR2_driver
  * @brief Setter function for TMR2 overflow Callback.
  * @param CallbackHandler - Pointer to custom Callback.
  * @return void
@@ -618,25 +626,6 @@ void Timer2_PeriodCountSet(size_t periodVal);
  */
 void Timer2_OverflowCallbackRegister(void (* InterruptHandler)(void));
 
-/**
- * @ingroup TMR2_driver
- * @brief This function performs tasks to be executed on timer overflow event
- * @param void
- * @return void
- *
- * @code
- * void main(void)
- * {
- *     Timer2_Initialize();
- *
- *     while(1)
- *     {
- *         Timer2_Tasks();
- *     }
- * }
- * @endcode
- */
-void Timer2_Tasks(void);
 
 #endif // TMR2_H
 /**

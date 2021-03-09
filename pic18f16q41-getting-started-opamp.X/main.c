@@ -74,9 +74,9 @@ int main(void)
             TMR2_ClearOverflowFlag();
             // Increment Timer Counter for LEDs
             count++;
-            
+                        
             // Update the key state (invert to prevent premature switching)
-            updateKeyState(0, !SW_1_GetValue());
+            updateKeyState(0, !S1_LPC_PORT);
             
             // Run debouncing
             debounce();
@@ -85,7 +85,7 @@ int main(void)
         // Change the LED
         if (count == 250)
         {
-            LED_D7_LAT = !LED_D7_LAT;
+            LED_D7_Toggle();
             count = 0;
         }
     }

@@ -15,8 +15,8 @@
     Generation Information :
         Driver Version    :  3.0.0
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v2.30 and above
-        MPLAB             :  MPLAB X v5.45 and above
+        Compiler          :  XC8 v2.31
+        MPLAB             :  MPLAB X v5.45
 */
 
 /*
@@ -66,7 +66,7 @@ const struct TMR_INTERFACE Timer2 = {
     .Stop = Timer2_Stop,
     .PeriodCountSet = Timer2_PeriodCountSet,
     .TimeoutCallbackRegister = Timer2_OverflowCallbackRegister,
-    .Tasks = Timer2_Tasks
+    .Tasks = NULL
 };
 
 static void (*Timer2_OverflowCallback)(void);
@@ -85,18 +85,20 @@ void Timer2_Initialize(void){
     T2HLT = 0x0;
     // TRSEL T2INPPS pin; 
     T2RST = 0x0;
-    // PR 30; 
-    T2PR = 0x1E;
+    // PR 3; 
+    T2PR = 0x3;
     // TMR 0x0; 
     T2TMR = 0x0;
 
     // Set Default Interrupt Handler
     Timer2_OverflowCallbackRegister(Timer2_DefaultOverflowCallback);
 
-    // Clearing IF flag.
+    // Clearing IF flag before enabling the interrupt.
      PIR3bits.TMR2IF = 0;
-    // TCKPS 1:1; TMRON off; TOUTPS 1:1; 
-    T2CON = 0x0;
+    // Enabling TMR2 interrupt.
+     PIE3bits.TMR2IE = 1;
+    // TCKPS 1:8; TMRON off; TOUTPS 1:1; 
+    T2CON = 0x30;
 }
 
 void Timer2_ModeSet(Timer2_HLT_MODE mode)
@@ -141,6 +143,17 @@ void Timer2_PeriodCountSet(size_t periodVal)
    PR2 = (uint8_t) periodVal;
 }
 
+void Timer2_ISR(void)
+{
+    // clear the TMR2 interrupt flag
+     PIR3bits.TMR2IF = 0;
+
+    if(Timer2_OverflowCallback)
+    {
+        Timer2_OverflowCallback();
+    }
+}
+
 void Timer2_OverflowCallbackRegister(void (* InterruptHandler)(void)){
     Timer2_OverflowCallback = InterruptHandler;
 }
@@ -148,16 +161,6 @@ void Timer2_OverflowCallbackRegister(void (* InterruptHandler)(void)){
 static void Timer2_DefaultOverflowCallback(void){
     // add your TMR2 interrupt custom code
     // or set custom function using Timer2_OverflowCallbackRegister()
-}
-
-void Timer2_Tasks(void)
-{
-    if(PIR3bits.TMR2IF)
-    {
-        // Clearing IF flag.
-        PIR3bits.TMR2IF = 0;
-        Timer2_OverflowCallback();
-    }
 }
 
 /**

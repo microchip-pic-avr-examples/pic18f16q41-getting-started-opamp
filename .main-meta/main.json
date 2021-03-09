@@ -24,7 +24,7 @@
         },
         "configurator": {
             "name": "MCC",
-            "semverRange": ">=3.95.0"
+            "semverRange": ">=5.1.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -52,7 +52,8 @@
         "keywords": [
             "MCC",
             "Intelligent Analog",
-            "Getting Started"
+            "Getting Started",
+            "Melody"
         ],
 		"additionalData": {
 			"longDescription": {

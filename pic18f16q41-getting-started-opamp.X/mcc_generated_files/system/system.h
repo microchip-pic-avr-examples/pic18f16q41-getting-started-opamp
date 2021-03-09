@@ -60,9 +60,9 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
 #include <stdbool.h>
 #include <conio.h>
 #include "config_bits.h"
-#include "../system/interrupt.h"
-#include "../system/clock.h"
 #include "../timer/tmr2.h"
+#include "../system/clock.h"
+#include "../system/interrupt.h"
 #include "../system/pins.h"
 
 /**
