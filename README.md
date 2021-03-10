@@ -11,15 +11,15 @@ On the PIC18-Q41 family of devices, the operational amplifier (OPA) module is a 
 
 ## Software Used
 
-* [MPLAB® X IDE v5.45 or newer](http://www.microchip.com/mplab/mplab-x-ide)
-* [Microchip XC8 Compiler v2.31 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
-* [MPLAB® Code Configurator (MCC) v5.1.0 or newer](https://www.microchip.com/mplab/mplab-code-configurator)
+* [MPLAB® X IDE v5.45 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [Microchip XC8 Compiler v2.31 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [MPLAB® Code Configurator (MCC) v4.1.0 or newer](https://www.microchip.com/mplab/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
 * [PIC18F-Q DFP v1.9.175 or newer](https://packs.download.microchip.com/)  
 
 ## Hardware Used
 
-* <a href="https://www.microchip.com/wwwproducts/en/PIC18F16Q41">PIC18F16Q41 Product Information</a><br>
-* <a href="https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM164137"> Microchip Curiosity Development Board (DM164137), Rev 4 </a>
+* [PIC18F16Q41 Product Information](https://www.microchip.com/wwwproducts/en/PIC18F16Q41?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [Microchip Curiosity Development Board (DM164137), Rev 4](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM164137?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
 * Potentiometer or Signal Source
   * To use the built-in potentiometer on the Curiosity board, use a wire to move it from RC0 to the desired input.
 * Parts for an external operational amplifier configuration (resistors, capacitors, etc...)
