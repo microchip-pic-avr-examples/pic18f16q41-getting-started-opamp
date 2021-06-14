@@ -66,7 +66,7 @@ const struct TMR_INTERFACE Timer2 = {
     .Stop = Timer2_Stop,
     .PeriodCountSet = Timer2_PeriodCountSet,
     .TimeoutCallbackRegister = Timer2_OverflowCallbackRegister,
-    .Tasks = NULL
+    .Tasks = Timer2_Tasks
 };
 
 static void (*Timer2_OverflowCallback)(void);
@@ -93,12 +93,10 @@ void Timer2_Initialize(void){
     // Set Default Interrupt Handler
     Timer2_OverflowCallbackRegister(Timer2_DefaultOverflowCallback);
 
-    // Clearing IF flag before enabling the interrupt.
+    // Clearing IF flag.
      PIR3bits.TMR2IF = 0;
-    // Enabling TMR2 interrupt.
-     PIE3bits.TMR2IE = 1;
-    // TCKPS 1:8; TMRON off; TOUTPS 1:1; 
-    T2CON = 0x30;
+    // TCKPS 1:8; TMRON on; TOUTPS 1:1; 
+    T2CON = 0xB0;
 }
 
 void Timer2_ModeSet(Timer2_HLT_MODE mode)
@@ -143,17 +141,6 @@ void Timer2_PeriodCountSet(size_t periodVal)
    PR2 = (uint8_t) periodVal;
 }
 
-void Timer2_ISR(void)
-{
-    // clear the TMR2 interrupt flag
-     PIR3bits.TMR2IF = 0;
-
-    if(Timer2_OverflowCallback)
-    {
-        Timer2_OverflowCallback();
-    }
-}
-
 void Timer2_OverflowCallbackRegister(void (* InterruptHandler)(void)){
     Timer2_OverflowCallback = InterruptHandler;
 }
@@ -161,6 +148,16 @@ void Timer2_OverflowCallbackRegister(void (* InterruptHandler)(void)){
 static void Timer2_DefaultOverflowCallback(void){
     // add your TMR2 interrupt custom code
     // or set custom function using Timer2_OverflowCallbackRegister()
+}
+
+void Timer2_Tasks(void)
+{
+    if(PIR3bits.TMR2IF)
+    {
+        // Clearing IF flag.
+        PIR3bits.TMR2IF = 0;
+        Timer2_OverflowCallback();
+    }
 }
 
 /**

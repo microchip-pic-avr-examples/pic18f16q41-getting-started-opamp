@@ -93,22 +93,6 @@ void  INTERRUPT_Initialize (void)
 
 }
 
-void __interrupt() INTERRUPT_InterruptManager (void)
-{
-    // interrupt handler
-    if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
-    {
-        PIN_MANAGER_IOC();
-    }
-    else if(PIE3bits.TMR2IE == 1 && PIR3bits.TMR2IF == 1)
-    {
-        Timer2_ISR();
-    }
-    else
-    {
-        //Unhandled Interrupt
-    }
-}
 
 void INT0_ISR(void)
 {

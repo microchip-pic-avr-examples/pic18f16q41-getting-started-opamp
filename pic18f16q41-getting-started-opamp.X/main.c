@@ -76,7 +76,7 @@ int main(void)
             count++;
                         
             // Update the key state (invert to prevent premature switching)
-            updateKeyState(0, !S1_LPC_PORT);
+            updateKeyState(0, !SW1_LPC_GetValue());
             
             // Run debouncing
             debounce();
