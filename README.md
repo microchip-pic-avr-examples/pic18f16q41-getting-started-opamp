@@ -2,25 +2,25 @@
 <a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
 # Getting Started with the OPA module on the PIC18F16Q41
-On the PIC18-Q41 family of devices, the operational amplifier (OPA) module is a powerful analog peripheral. The OPA module comes with an internal resistor ladder, which can be used to create a non-inverting or inverting amplifier with no external components required. An internal switch can set the OPA module into unity gain without an external jumper wire. The OPA module also has the option for an external configuration, where the user can use externally placed components to build a custom amplifier configuration. This code example is designed to switch between and demonstrate the 4 configurations listed above -  Unity Gain, Non-Inverting Amplifier, Inverting Amplifier, and External.
+On the PIC18F16Q41 family of devices, the operational amplifier (OPA) module is a powerful analog peripheral. The OPA module comes with an internal resistor ladder, which can be used to create a non-inverting or inverting amplifier with no external components required. An internal switch can set the OPA module into unity gain without an external jumper wire. The OPA module also has the option for an external configuration, where the user can use externally placed components to build a custom amplifier configuration. This code example is designed to switch between and demonstrate the 4 configurations listed above -  Unity Gain, Non-Inverting Amplifier, Inverting Amplifier, and External.
 
 ## Related Documentation
-[TB3280: Using Operational Amplifiers in PIC16 and PIC18](http://ww1.microchip.com/downloads/en/DeviceDoc/Using-the-Operational-Amplifier-on-PIC16-and-PIC18-90003280A.pdf)  
-[TB3279: Optimizing Internal Operational Amplifiers for Analog Signal Conditioning](http://ww1.microchip.com/downloads/en/DeviceDoc/Optimizing-Internal-Operational-Amplifiers-for-Analog-Signal-Conditioning-90003279A.pdf)  
-[AN3521: Analog Sensor Measurement and Acquisition](http://www.microchip.com/wwwappnotes/appnotes.aspx?appnote=en1002264)  
+[(TB3280) Using Operational Amplifiers in PIC16 and PIC18](http://ww1.microchip.com/downloads/en/DeviceDoc/Using-the-Operational-Amplifier-on-PIC16-and-PIC18-90003280A.pdf)  
+[(TB3279) Optimizing Internal Operational Amplifiers for Analog Signal Conditioning](http://ww1.microchip.com/downloads/en/DeviceDoc/Optimizing-Internal-Operational-Amplifiers-for-Analog-Signal-Conditioning-90003279A.pdf)  
+[(AN3521) Analog Sensor Measurement and Acquisition](http://www.microchip.com/wwwappnotes/appnotes.aspx?appnote=en1002264)  
+[(AN3110) Maximizing the Signal: How to Use and Understand Embedded Operational Amplifiers](https://www.microchip.com/en-us/application-notes/an3110)
 
 ## Software Used
 
-* [MPLAB® X IDE v5.50 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
-* [Microchip XC8 Compiler v2.31 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
-* [MPLAB® Code Configurator (MCC) v4.1.0 or newer](https://www.microchip.com/mplab/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
-  * Melody Library v1.37.32 or Newer
-* [PIC18F-Q DFP v1.11.185 or newer](https://packs.download.microchip.com/)  
+* [MPLAB® X IDE v6.05 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [Microchip XC8 Compiler v2.40 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [MPLAB® Code Configurator (MCC)](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [PIC18F-Q DFP v1.15.360 or newer](https://packs.download.microchip.com/)  
 
 ## Hardware Used
 
-* [PIC18F16Q41 Product Information](https://www.microchip.com/wwwproducts/en/PIC18F16Q41?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
-* [Microchip Curiosity Development Board (DM164137), Rev 4](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM164137?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [PIC18F16Q41 Product Information](https://microchip.com/en-us/product/PIC18F16Q41?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
+* [Microchip Curiosity Development Board (DM164137), Rev 4](https://microchip.com/en-us/development-tool/DM164137?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic18q41&utm_content=pic18q41_getting_started_opamp_github)
 * Potentiometer or Signal Source
   * To use the built-in potentiometer on the Curiosity board, use a wire to move it from RC0 to the desired input.
 * Parts for an external operational amplifier configuration (resistors, capacitors, etc...)

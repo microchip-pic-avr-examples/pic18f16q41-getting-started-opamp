@@ -81,11 +81,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.31</languageToolchainVersion>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.11.185"/>
+        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.15.360"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -207,6 +207,8 @@
                   value="${communication.interface.default}"/>
         <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="freeze.timers" value="false"/>
@@ -236,6 +238,7 @@
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
@@ -250,12 +253,15 @@
       </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
+        <property key="constdata-progmem" value="true"/>
         <property key="gcc-opt-driver-new" value="true"/>
         <property key="gcc-opt-std" value="-std=c99"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
+        <property key="mapped-progmem" value="false"/>
         <property key="omit-pack-options" value="false"/>
         <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
+        <property key="smart-io-format" value=""/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
@@ -324,7 +330,6 @@
       </pk4hybrid>
       <pkob4hybrid>
         <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="Freeze Peripherals" value="true"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UpdateOptions"
@@ -351,7 +356,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
-        <property key="memories.rww" value="true"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
@@ -364,6 +368,7 @@
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
@@ -381,11 +386,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.31</languageToolchainVersion>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.11.185"/>
+        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.15.360"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -507,6 +512,8 @@
                   value="${communication.interface.default}"/>
         <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="freeze.timers" value="false"/>
@@ -536,6 +543,7 @@
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
@@ -550,12 +558,15 @@
       </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
+        <property key="constdata-progmem" value="true"/>
         <property key="gcc-opt-driver-new" value="true"/>
         <property key="gcc-opt-std" value="-std=c99"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
+        <property key="mapped-progmem" value="false"/>
         <property key="omit-pack-options" value="false"/>
         <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
+        <property key="smart-io-format" value=""/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
@@ -637,6 +648,8 @@
                   value="${communication.interface.default}"/>
         <property key="communication.interface.jtag" value="2wire"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="freeze.timers" value="false"/>
@@ -653,7 +666,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
-        <property key="memories.rww" value="true"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
@@ -666,6 +678,7 @@
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>

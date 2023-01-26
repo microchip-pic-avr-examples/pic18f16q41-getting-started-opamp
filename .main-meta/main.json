@@ -10,21 +10,21 @@
         "shortDescription": "PIC18F16Q41 Introduction to the Operational Amplifier Module",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=5.45.0"
+            "semverRange": ">=6.0.5"
         },
         "compiler": [
 			{
 				"name": "XC8",
-				"semverRange": "^2.31.0"
+				"semverRange": "^2.40.0"
 			}
 		],
         "dfp": {
             "name": "PIC18F-Q_DFP",
-            "semverRange": "^1.11.185"
+            "semverRange": "^1.15.360"
         },
         "configurator": {
             "name": "MCC",
-            "semverRange": ">=4.1.0"
+            "semverRange": ">=5.2.2"
         },
         "device": {
             "metaDataVersion": "1.0.0",
