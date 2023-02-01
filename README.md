@@ -2,7 +2,7 @@
 <a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
 # Getting Started with the OPA module on the PIC18F16Q41
-The operational amplifier (OPA) module is a powerful analog peripheral of the PIC18F16Q41 family that allows integrates a full operational amplifier into the microcontroller die. This OPA module has an internal resistor ladder, which can be used to implement a non-inverting or inverting amplifier with no external components. There is also an internal switch can set the op amp into unity gain without an external jumper wire. The OPA can be externally configured by the user adding external components to build a custom amplifier configuration. This code example shows the four configurations listed above - Unity Gain, Non-Inverting Amplifier, Inverting Amplifier, and External.
+The operational amplifier (OPA) module is a powerful analog peripheral of the PIC18-Q41 family that allows integrates a full operational amplifier into the microcontroller die. This OPA module has an internal resistor ladder, which can be used to implement a non-inverting or inverting amplifier with no external components. There is also an internal switch can set the op amp into unity gain without an external jumper wire. The OPA can be externally configured by the user adding external components to build a custom amplifier configuration. This code example shows the four configurations listed above - Unity Gain, Non-Inverting Amplifier, Inverting Amplifier, and External.
 
 ## Related Documentation
 [(TB3280) Using Operational Amplifiers in PIC16 and PIC18](http://ww1.microchip.com/downloads/en/DeviceDoc/Using-the-Operational-Amplifier-on-PIC16-and-PIC18-90003280A.pdf)  
@@ -196,4 +196,4 @@ void InvertingSetup(void)
 ```
 
 ## Summary
-The OPA module in the PIC18F16Q41 family is a flexible analog peripheral that can be used in a number of ways. Each configuration has a specific use case that can aid in signal acquisition applications through an internal connection with the ADC. Other analog peripherals can also utilize the OPA module to unlock new use cases, for instance, the DAC output can be mirrored or tracked in output level through the module. The 4 configurations shown in this code example are the tip of the iceberg - most op-amp circuit can be modified to function on the OPA module.
+The OPA module in the PIC18-Q41 family is a flexible analog peripheral that can be used in a number of ways. Each configuration has a specific use case that can aid in signal acquisition applications through an internal connection with the ADC. Other analog peripherals can also utilize the OPA module to unlock new use cases, for instance, the DAC output can be mirrored or tracked in output level through the module. The 4 configurations shown in this code example are the tip of the iceberg - most op-amp circuit can be modified to function on the OPA module.
